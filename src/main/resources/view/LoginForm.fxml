@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="482.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.LoginFormController">
+   <children>
+      <Label layoutX="155.0" layoutY="22.0" prefHeight="41.0" prefWidth="94.0" text="LOGIN">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUser" alignment="CENTER" layoutX="78.0" layoutY="151.0" onAction="#txtGoToPasswordOnAction" prefHeight="40.0" prefWidth="280.0" promptText="username" style="-fx-background-radius: 18;" styleClass="tex_field">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="32.0" fitWidth="97.0" layoutX="85.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/PasrtyPal-With-Layered-Architecture/src/main/resources/icons/icons8-user-100.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="74.0" layoutY="221.0" onAction="#txtLoginOnAction" prefHeight="40.0" prefWidth="280.0" promptText="password" style="-fx-background-radius: 18;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="32.0" fitWidth="97.0" layoutX="85.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/PasrtyPal-With-Layered-Architecture/src/main/resources/icons/icons8-key-100.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="80.0" layoutY="129.0" text="Enter your user name" />
+      <Label layoutX="83.0" layoutY="199.0" text="Enter your password" />
+      <JFXButton buttonType="RAISED" layoutX="166.0" layoutY="315.0" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: rgba(229, 142, 38,1.0); -fx-background-radius: 16;" text="Login" textFill="#f5ecec">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="76.0" layoutY="271.0" text="Don't hav an accout ?" />
+      <Hyperlink layoutX="228.0" layoutY="267.0" onAction="#hyperSignUpOnAction" style="-fx-background-radius: 15;" text="Sign up here !" />
+   </children>
+</AnchorPane>

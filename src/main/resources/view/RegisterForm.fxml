@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="RegisterPane" prefHeight="482.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.RegisterFormController">
+   <children>
+      <Label layoutX="139.0" layoutY="14.0" prefHeight="41.0" prefWidth="141.0" text="REGISTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUser" alignment="CENTER" layoutX="62.0" layoutY="124.0" onAction="#txtGoToNewPasswordOnAction" prefHeight="40.0" prefWidth="280.0" promptText="username" style="-fx-background-radius: 18;" styleClass="tex_field">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="73.0" layoutY="100.0" text="Enter your name" />
+      <Label layoutX="74.0" layoutY="180.0" text="Add a new Password" />
+      <Label layoutX="74.0" layoutY="263.0" text="Confirm Password" />
+      <JFXButton buttonType="RAISED" layoutX="83.0" layoutY="352.0" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: rgba(229, 142, 38,1.0); -fx-background-radius: 16;" text="Register" textFill="#f5ecec">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="205.0" layoutY="352.0" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: rgba(229, 142, 38,1.0); -fx-background-radius: 16;" text="Back" textFill="#f5ecec">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <PasswordField fx:id="txtConfirmPassword" alignment="CENTER" layoutX="62.0" layoutY="286.0" onAction="#txtRegisterOnAction" prefHeight="40.0" prefWidth="280.0" promptText="Confirm password" style="-fx-background-radius: 18;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="62.0" layoutY="205.0" onAction="#txtGoToConfirmPasswordOnAction" prefHeight="40.0" prefWidth="280.0" promptText="password" style="-fx-background-radius: 18;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

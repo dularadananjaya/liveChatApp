@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" prefHeight="676.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.ServerFormController ">
+   <children>
+      <AnchorPane layoutY="-20.0" prefHeight="91.0" prefWidth="431.0" style="-fx-background-color: #82b74b; -fx-background-radius: 15;">
+         <children>
+            <JFXButton layoutX="352.0" layoutY="24.0" onAction="#addButtonOnAction" prefHeight="53.0" prefWidth="49.0" text=".">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/kisspng-plus-and-minus-signs-computer-icons-plus-minus-sig-positive-vector-5adf89167b81d0.5544490915245990625059-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children></AnchorPane>
+      <Text layoutX="153.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server" textAlignment="CENTER" wrappingWidth="129.0">
+         <font>
+            <Font name="FreeSerif Bold" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="142.0" fitWidth="129.0" layoutX="-33.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Premium_Vector___Modern_creative_chat_and_talk_logo_design-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="54.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Chat" textAlignment="CENTER" wrappingWidth="84.0">
+         <font>
+            <Font name="FreeSerif Bold" size="16.0" />
+         </font>
+      </Text>
+      <ScrollPane fx:id="scorollPane" layoutX="2.0" layoutY="85.0" prefHeight="570.0" prefWidth="423.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="590.0" prefWidth="423.0">
+               <children>
+                  <VBox fx:id="vBox" prefHeight="592.0" prefWidth="423.0" />
+                  <ImageView fitHeight="610.0" fitWidth="423.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Default%20WhatsApp%20background%20for%20people%20who%20lost%20it_%20Requested%20by%20u_Marvin_der_kuhle.jpeg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
