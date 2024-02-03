@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="482.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="482.0" prefWidth="403.0" style="-fx-background-color: #0D9276;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.LoginFormController">
    <children>
       <Label layoutX="155.0" layoutY="22.0" prefHeight="41.0" prefWidth="94.0" text="LOGIN">
          <font>
@@ -49,6 +49,6 @@
          </cursor>
       </JFXButton>
       <Label layoutX="76.0" layoutY="271.0" text="Don't hav an accout ?" />
-      <Hyperlink layoutX="228.0" layoutY="267.0" onAction="#hyperSignUpOnAction" style="-fx-background-radius: 15;" text="Sign up here !" />
+      <Hyperlink layoutX="228.0" layoutY="267.0" onAction="#hyperSignUpOnAction" style="-fx-background-radius: 15;" text="Sign up here !" textFill="#ffecec" />
    </children>
 </AnchorPane>

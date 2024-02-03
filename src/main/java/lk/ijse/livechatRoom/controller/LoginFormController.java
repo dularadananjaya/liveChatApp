@@ -10,10 +10,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.livechatRoom.dto.RegistrationDto;
 import lk.ijse.livechatRoom.model.RegistrationModel;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class LoginFormController {
 
@@ -24,43 +29,73 @@ public class LoginFormController {
     @FXML
     private AnchorPane rootNode;
     private RegistrationModel registrationModel = new RegistrationModel();
+    private static ArrayList<DataOutputStream> clientList = new ArrayList<>();
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        String userName = txtUser.getText();
+        String name = txtUser.getText();
         String pw = txtPassword.getText();
 
         try {
-            boolean isValid = registrationModel.isValidUser(userName,pw);
-            if (isValid){
+            boolean isValid = registrationModel.isValidUser(name,pw);
+            if (isValid) {
 
-                registrationModel.getUserInfo(userName); //Create a method in the model where the query is executed
-                rootNode.getScene().getWindow().hide();
-                Stage primaryStage = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClientForm.fxml"));
-                Parent root = loader.load();
+                // Load the FXML file
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ServerForm.fxml"));
+                AnchorPane anchorPane = loader.load();
 
-                ClientFormController controller = new ClientFormController();
-                controller.setClientName(txtUser.getText()); // Set the parameter
-                loader.setController(controller);
+                // Create a new scene with the loaded anchorPane
+                Scene scene = new Scene(anchorPane);
 
+                // Get the current stage
+                Stage stage = new Stage();
 
-                primaryStage.setScene(new Scene(root));
-                primaryStage.setTitle(txtUser.getText());
-                primaryStage.setResizable(false);
-                primaryStage.centerOnScreen();
-                primaryStage.setOnCloseRequest(windowEvent -> {
-                    controller.shutdown();
-                });
-                primaryStage.show();
+                // Set the new scene to the current stage
+                stage.setScene(scene);
 
-                txtUser.clear();
-            }else {
+                // Customize the stage properties
+                stage.centerOnScreen();
+                stage.setResizable(false);
+                stage.setTitle("Echo Room");
+                stage.show();
+
+                // Retrieve user information
+                RegistrationDto userDto = registrationModel.getUserInfo(name);
+
+                // Access the controller from the FXMLLoader
+                SendingFormController messageFormController = loader.getController();
+
+                // Pass user information to the controller
+                messageFormController.setUser(userDto);
+                txtUser.setText("");
+                txtPassword.setText("");
+
+            } else {
                 new Alert(Alert.AlertType.ERROR,"User Name And Password Did Not Matched try again").showAndWait();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+    public static void startServer() {
+        new Thread(() -> {
+            try {
+                ServerSocket serverSocket = new ServerSocket(3001);
+                Socket socket;
+                while (true) {
+                    System.out.println("Waiting for clients...");
+                    socket = serverSocket.accept();
+                    System.out.println("Accepted...");
+                    Client clients = new Client(socket,clientList);
+                    new Thread(clients).start();
+
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 
     @FXML

@@ -1,56 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" prefHeight="676.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.ServerFormController ">
+
+<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="495.0" style="-fx-background-color: #436850;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.livechatRoom.controller.SendingFormController">
    <children>
-      <AnchorPane layoutY="-20.0" prefHeight="91.0" prefWidth="431.0" style="-fx-background-color: #82b74b; -fx-background-radius: 15;">
+      <TextField fx:id="txtMassageSend" layoutX="33.0" layoutY="635.0" onAction="#txtMessageSendOnAction" prefHeight="40.0" prefWidth="307.0" promptText="send a message....." style="-fx-background-radius: 25;">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextField>
+      <AnchorPane layoutX="350.0" layoutY="635.0" prefHeight="43.0" prefWidth="112.0" style="-fx-background-color: white; -fx-background-radius: 25;">
          <children>
-            <JFXButton layoutX="352.0" layoutY="24.0" onAction="#addButtonOnAction" prefHeight="53.0" prefWidth="49.0" text=".">
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="3.0" onAction="#btnSendEmojiOnAction" prefHeight="32.0" prefWidth="32.0" textFill="WHITE">
                <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/kisspng-plus-and-minus-signs-computer-icons-plus-minus-sig-positive-vector-5adf89167b81d0.5544490915245990625059-removebg-preview.png" />
+                        <Image url="@../img/png-transparent-emoticon-computer-icons-smiley-wink-smiley-miscellaneous-logo-smiley-removebg-preview.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-         </children></AnchorPane>
-      <Text layoutX="153.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server" textAlignment="CENTER" wrappingWidth="129.0">
-         <font>
-            <Font name="FreeSerif Bold" size="28.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="142.0" fitWidth="129.0" layoutX="-33.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="66.0" layoutY="5.0" onMouseClicked="#imgSendImagesOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/png-transparent-paper-clip-logo-attach-text-logo-flyer-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="23.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/Premium_Vector___Modern_creative_chat_and_talk_logo_design-removebg-preview.png" />
          </image>
       </ImageView>
-      <Text layoutX="54.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Chat" textAlignment="CENTER" wrappingWidth="84.0">
+      <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="431.0" layoutY="35.0" onMouseClicked="#imgBackOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/kisspng-plus-and-minus-signs-computer-icons-plus-minus-sig-positive-vector-5adf89167b81d0.5544490915245990625059-removebg-preview.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="93.0" layoutY="35.0" text="LIVE" textFill="WHITE">
          <font>
-            <Font name="FreeSerif Bold" size="16.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
-      </Text>
-      <ScrollPane fx:id="scorollPane" layoutX="2.0" layoutY="85.0" prefHeight="570.0" prefWidth="423.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="590.0" prefWidth="423.0">
-               <children>
-                  <VBox fx:id="vBox" prefHeight="592.0" prefWidth="423.0" />
-                  <ImageView fitHeight="610.0" fitWidth="423.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/Default%20WhatsApp%20background%20for%20people%20who%20lost%20it_%20Requested%20by%20u_Marvin_der_kuhle.jpeg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-        </content>
+      </Label>
+      <Label fx:id="lblUserName" layoutX="93.0" layoutY="53.0" prefHeight="18.0" prefWidth="95.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="218.0" layoutY="21.0" prefHeight="18.0" prefWidth="95.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="17.0" layoutY="95.0" prefHeight="529.0" prefWidth="458.0">
+         <content>
+            <VBox fx:id="vBox" prefWidth="413.0" />
+         </content>
       </ScrollPane>
+      <AnchorPane fx:id="emojiAnchorpane" layoutX="149.0" layoutY="409.0" prefHeight="216.0" prefWidth="307.0">
+         <children>
+            <GridPane fx:id="emojiGridpane" layoutY="5.0" prefHeight="194.0" prefWidth="307.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="103.0" layoutY="55.0" text="CHAT" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
